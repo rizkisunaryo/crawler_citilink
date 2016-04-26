@@ -1,0 +1,56 @@
+search flight
+
+https://book.citilink.co.id/Search.aspx?
+Page=Select
+&RadioButtonMarketStructure=OneWay
+&TextBoxMarketOrigin1=HLP
+&TextBoxMarketDestination1=MLG
+&DropDownListMarketMonth1=2016-05
+&DropDownListMarketDay1=14
+&DropDownListMarketMonth2
+&DropDownListMarketDay2
+&DropDownListPassengerType_ADT=2
+&DropDownListPassengerType_INFANT=2
+&DropDownListCurrency=IDR
+&OrganizationCode=QG
+&DropDownListPassengerType_CHD=1
+&culture=id-ID
+
+
+
+price total
+
+__EVENTTARGET=
+&__EVENTARGUMENT=
+&__VIEWSTATE=%2FwEPDwUBMGRkBsrCYiDYbQKCOcoq%2FUTudEf14vk%3D
+&pageToken=
+&AvailabilitySearchInputScheduleSelectVieworiginStation1=
+&AvailabilitySearchInputScheduleSelectView%24TextBoxMarketOrigin1=
+&AvailabilitySearchInputScheduleSelectViewdestinationStation1=
+&AvailabilitySearchInputScheduleSelectView%24TextBoxMarketDestination1=
+&AvailabilitySearchInputScheduleSelectVieworiginStation2=
+&AvailabilitySearchInputScheduleSelectView%24TextBoxMarketOrigin2=
+&AvailabilitySearchInputScheduleSelectViewdestinationStation2=
+&AvailabilitySearchInputScheduleSelectView%24TextBoxMarketDestination2=
+&AvailabilitySearchInputScheduleSelectView%24RadioButtonMarketStructure=RoundTrip
+&AvailabilitySearchInputScheduleSelectView%24DropDownListMarketDay1=26
+&AvailabilitySearchInputScheduleSelectView%24DropDownListMarketMonth1=2016-04
+&date_picker=2016-04-26
+&AvailabilitySearchInputScheduleSelectView%24DropDownListMarketMonth2=2016-05
+&date_picker=2016-04-27
+&AvailabilitySearchInputScheduleSelectView%24DropDownListPassengerType_ADT=2
+&AvailabilitySearchInputScheduleSelectView%24DropDownListPassengerType_CHD=0
+&AvailabilitySearchInputScheduleSelectView%24DropDownListPassengerType_INFANT=0
+&AvailabilitySearchInputScheduleSelectView%24DropDownListPaxDiscount=
+&AvailabilitySearchInputScheduleSelectView%24DropDownListSearchBy=columnView
+&AvailabilitySearchInputScheduleSelectView%24DdlCurrencyDynamic=IDR
+&ControlGroupScheduleSelectView%24AvailabilityInputScheduleSelectView%24HiddenFieldTabIndex1=2
+&ControlGroupScheduleSelectView%24AvailabilityInputScheduleSelectView%24market1=2%7EN%7E%7EN%7ERGFR%7E%7E1%7EX%5E1%7EN%7E%7EN%7ERGFR%7E%7E2%7E%7CQG%7E+633%7E+%7E%7EBPN%7E01%2F28%2F2017+11%3A50%7ESUB%7E01%2F28%2F2017+12%3A15%7E%5EQG%7E+670%7E+%7E%7ESUB%7E01%2F28%2F2017+15%3A00%7EMDC%7E01%2F28%2F2017+18%3A40%7E
+&ControlGroupScheduleSelectView%24ButtonSubmit=Lanjutkan
+
+~ => %7E
+^ => %5E
+| => %7C
+/ => %2F
+: => %3A
+  => +
