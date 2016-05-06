@@ -19,7 +19,8 @@ $arrContextOptions=
 	array(
         'http' => array(
             'header'  => "Cookie: ASP.NET_SessionId=".$session.";\r\n" . 
-            			"Host: book.citilink.co.id\r\n" . 
+            			"Host: book.citilink.co.id\r\n" .
+                        "Content-Type: application/x-www-form-urlencoded\r\n" .
             			"Referer: https://book.citilink.co.id/ScheduleSelect.aspx\r\n",
             'method'  => 'POST',
             'content' => '&__VIEWSTATE=%2FwEPDwUBMGRkBsrCYiDYbQKCOcoq%2FUTudEf14vk%3D&AvailabilitySearchInputScheduleSelectView%24DdlCurrencyDynamic=IDR&ControlGroupScheduleSelectView%24AvailabilityInputScheduleSelectView%24market1='.$code.'&ControlGroupScheduleSelectView%24ButtonSubmit=Lanjutkan',
@@ -33,8 +34,9 @@ $arrContextOptions=
 	array(
         'http' => array(
             'header'  => "Cookie: ASP.NET_SessionId=".$session.";\r\n" . 
-            			"Host: book.citilink.co.id\r\n" . 
-            			"https://book.citilink.co.id/Passenger.aspx\r\n",
+            			"Host: book.citilink.co.id\r\n" .
+                        "Content-Type: application/x-www-form-urlencoded\r\n" .
+                        "Referer: https://book.citilink.co.id/Passenger.aspx\r\n",
             'method'  => 'GET',
         ),
     );
