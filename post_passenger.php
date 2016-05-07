@@ -103,19 +103,19 @@ $arrContextOptions=
     );
 file_get_contents("https://book.citilink.co.id/Passenger.aspx", false, stream_context_create($arrContextOptions));
 
-//$arrContextOptions=
-//    array(
-//        'http' => array(
-//            'header'  => "Cookie: ASP.NET_SessionId=".$req->session.";\r\n" .
-//                "Host: book.citilink.co.id\r\n" .
-//                "Content-Type: application/x-www-form-urlencoded\r\n" .
-//                "https://book.citilink.co.id/Passenger.aspx\r\n",
-//            'method'  => 'GET',
-//        ),
-//    );
-//$response = file_get_contents("https://book.citilink.co.id/Insurance.aspx", false, stream_context_create($arrContextOptions));
-//
-//$response = str_replace("images/", "https://book.citilink.co.id/images/", $response);
-//$response = str_replace("css/", "https://book.citilink.co.id/css/", $response);
-//$response = str_replace("js/", "https://book.citilink.co.id/js/", $response);
-//echo $response;
+$arrContextOptions=
+    array(
+        'http' => array(
+            'header'  => "Cookie: ASP.NET_SessionId=".$req->session.";\r\n" .
+                "Host: book.citilink.co.id\r\n" .
+                "Content-Type: application/x-www-form-urlencoded\r\n" .
+                "https://book.citilink.co.id/Passenger.aspx\r\n",
+            'method'  => 'GET',
+        ),
+    );
+$response = file_get_contents("https://book.citilink.co.id/Insurance.aspx", false, stream_context_create($arrContextOptions));
+
+$response = str_replace("images/", "https://book.citilink.co.id/images/", $response);
+$response = str_replace("css/", "https://book.citilink.co.id/css/", $response);
+$response = str_replace("js/", "https://book.citilink.co.id/js/", $response);
+echo $response;
