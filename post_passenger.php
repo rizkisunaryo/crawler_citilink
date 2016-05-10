@@ -15,6 +15,7 @@ if(!isset($req->session) || isEmpty($req->session)) {
     echo json_encode($resp);
     die();
 }
+$resp['session'] = $req->session;
 
 $reqAddressPerson=null;
 if (isset($req->address_person)) {
@@ -86,8 +87,6 @@ if (isset($req->pmi) && $req->pmi==1) {
 $inpBody .= http_build_query($inp);
 $inpBody .= '&CONTROLGROUPPASSENGER$ItineraryDistributionInputPassengerView$Distribution=2&CONTROLGROUPPASSENGER$ButtonSubmit=Lanjutkan';
 
-echo $inpBody;
-
 
 
 $arrContextOptions=
@@ -109,11 +108,107 @@ $arrContextOptions=
             'header'  => "Cookie: ASP.NET_SessionId=".$req->session.";\r\n" .
                 "Host: book.citilink.co.id\r\n" .
                 "Content-Type: application/x-www-form-urlencoded\r\n" .
-                "https://book.citilink.co.id/Passenger.aspx\r\n",
+                "Referer: https://book.citilink.co.id/Passenger.aspx\r\n",
             'method'  => 'GET',
         ),
     );
 $response = file_get_contents("https://book.citilink.co.id/Insurance.aspx", false, stream_context_create($arrContextOptions));
+
+//$response = str_replace("images/", "https://book.citilink.co.id/images/", $response);
+//$response = str_replace("css/", "https://book.citilink.co.id/css/", $response);
+//$response = str_replace("js/", "https://book.citilink.co.id/js/", $response);
+//echo $response;
+
+
+
+
+
+$inpInsurance = array();
+
+$key1BlockArr = explode('klik disini</a></p><br><input type="hidden" name="', $response);
+if (count($key1BlockArr)<2) {
+    $resp['message'] = "error";
+    echo json_encode($resp);
+    die();
+}
+$key1Block = $key1BlockArr[1];
+$key1 = substr($key1Block, 0, strpos($key1Block, '"'));
+
+$value1BlockArr = explode($key1 . '" value="', $response);
+if (count($value1BlockArr)<2) {
+    $resp['message'] = "error";
+    echo json_encode($resp);
+    die();
+}
+$value1Block = $value1BlockArr[1];
+$value1 = substr($value1Block, 0, strpos($value1Block, '"'));
+
+$inpInsurance[$key1] = $value1;
+
+
+
+$key2BlockArr = explode('<select id="group_establishment_0" name="', $response);
+if (count($key2BlockArr)<2) {
+    $resp['message'] = "error";
+    echo json_encode($resp);
+    die();
+}
+$key2Block = $key2BlockArr[1];
+$key2 = substr($key2Block, 0, strpos($key2Block, '"'));
+
+$value2BlockArr = explode('"><option value="">Tidak ada cakupan</option>', $response);
+if (count($value2BlockArr)<2) {
+    $resp['message'] = "error";
+    echo json_encode($resp);
+    die();
+}
+$value2Block = $value2BlockArr[1];
+$value2SearchAwal = '<option value="';
+$value2IndexAwal = strpos($value2Block, $value2SearchAwal);
+$value2IndexAkhir = strpos($value2Block, '" selected>');
+$value2 = substr($value2Block, $value2IndexAwal, $value2IndexAkhir - $value2IndexAwal);
+$value2 = str_replace($value2SearchAwal, "", $value2);
+
+$inpInsurance[$key2] = $value2;
+
+
+
+$key3 = str_replace("itemKey", "primaryParticipantNumber", $key2);
+$value3 = 0;
+
+$inpInsurance[$key3] = $value3;
+
+
+
+$inpBodyInsurance = "__EVENTTARGET=&__EVENTARGUMENT=&__VIEWSTATE=%2FwEPDwUBMGRkBsrCYiDYbQKCOcoq%2FUTudEf14vk%3D&pageToken=&ControlGroupInsuranceView%24ButtonSubmit=Lanjutkan&";
+$inpBodyInsurance .= http_build_query($inpInsurance);
+
+
+
+$arrContextOptions=
+    array(
+        'http' => array(
+            'header'  => "Cookie: ASP.NET_SessionId=".$req->session.";\r\n" .
+                "Host: book.citilink.co.id\r\n" .
+                "Content-Type: application/x-www-form-urlencoded\r\n" .
+                "Referer: https://book.citilink.co.id/Insurance.aspx\r\n",
+            'method'  => 'POST',
+            'content' => $inpBodyInsurance,
+        ),
+    );
+file_get_contents("https://book.citilink.co.id/Insurance.aspx", false, stream_context_create($arrContextOptions));
+
+$arrContextOptions=
+    array(
+        'http' => array(
+            'header'  => "Cookie: ASP.NET_SessionId=".$req->session.";\r\n" .
+                "Host: book.citilink.co.id\r\n" .
+                "Content-Type: application/x-www-form-urlencoded\r\n" .
+                "Referer: https://book.citilink.co.id/Insurance.aspx\r\n",
+            'method'  => 'GET',
+        ),
+    );
+$response = file_get_contents("https://book.citilink.co.id/SeatMap.aspx", false, stream_context_create($arrContextOptions));
 
 $response = str_replace("images/", "https://book.citilink.co.id/images/", $response);
 $response = str_replace("css/", "https://book.citilink.co.id/css/", $response);
